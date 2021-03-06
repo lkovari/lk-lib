@@ -1,0 +1,168 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "form-validation-monitor": {
+      "projectType": "library",
+      "root": "projects/form-validation-monitor",
+      "sourceRoot": "projects/form-validation-monitor/src",
+      "prefix": "lk",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/form-validation-monitor/tsconfig.lib.json",
+            "project": "projects/form-validation-monitor/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form-validation-monitor/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form-validation-monitor/src/test.ts",
+            "tsConfig": "projects/form-validation-monitor/tsconfig.spec.json",
+            "karmaConfig": "projects/form-validation-monitor/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form-validation-monitor/tsconfig.lib.json",
+              "projects/form-validation-monitor/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "form-validation-monitor-example": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/form-validation-monitor-example",
+      "sourceRoot": "projects/form-validation-monitor-example/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/form-validation-monitor-example",
+            "index": "projects/form-validation-monitor-example/src/index.html",
+            "main": "projects/form-validation-monitor-example/src/main.ts",
+            "polyfills": "projects/form-validation-monitor-example/src/polyfills.ts",
+            "tsConfig": "projects/form-validation-monitor-example/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/form-validation-monitor-example/src/favicon.ico",
+              "projects/form-validation-monitor-example/src/assets"
+            ],
+            "styles": [
+              "projects/form-validation-monitor-example/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/form-validation-monitor-example/src/environments/environment.ts",
+                  "with": "projects/form-validation-monitor-example/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "form-validation-monitor-example:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "form-validation-monitor-example:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "form-validation-monitor-example:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/form-validation-monitor-example/src/test.ts",
+            "polyfills": "projects/form-validation-monitor-example/src/polyfills.ts",
+            "tsConfig": "projects/form-validation-monitor-example/tsconfig.spec.json",
+            "karmaConfig": "projects/form-validation-monitor-example/karma.conf.js",
+            "assets": [
+              "projects/form-validation-monitor-example/src/favicon.ico",
+              "projects/form-validation-monitor-example/src/assets"
+            ],
+            "styles": [
+              "projects/form-validation-monitor-example/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/form-validation-monitor-example/tsconfig.app.json",
+              "projects/form-validation-monitor-example/tsconfig.spec.json",
+              "projects/form-validation-monitor-example/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/form-validation-monitor-example/e2e/protractor.conf.js",
+            "devServerTarget": "form-validation-monitor-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "form-validation-monitor-example:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "form-validation-monitor"
+}
