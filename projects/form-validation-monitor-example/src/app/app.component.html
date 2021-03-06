@@ -33,10 +33,9 @@
               app-firstCapital>
             <div *ngIf="(userName && (userName.invalid && userName.dirty)) " class="text-danger">
               <p *ngIf="userName?.errors?.required">Value is required!</p>
-              <p *ngIf="userName?.errors?.firstcapital">The first character should capital letter!</p>
-              <p *ngIf="userName.hasError('minlength')">Min length is {{ userNameMinLength }}!
-              </p>
+              <p *ngIf="userName.hasError('minlength')">Min length is {{ userNameMinLength }}!</p>
               <p *ngIf="userName?.errors?.maxlength">Max length is {{ userNameMaxLength }}!</p>
+              <p *ngIf="userName?.hasError('firstcapital')">The first character should capital letter!</p>
             </div>
           </div>
           <div class="form-group">
@@ -61,12 +60,15 @@
               <p *ngIf="phone.errors?.pattern">Please type a valid US. phone number without ext!</p>
             </div>
           </div>
-          <button type="button" (click)="setValues()">Set
+          <button class="btn btn-primary spacer" type="button" (click)="setValues()">Set
             Data</button>
-          <button type="button" (click)="clearValues()">Clear
+          <button class="btn btn-primary spacer" type="button" (click)="clearValues()">Clear
             Data</button>
-          <button type="submit" [disabled]="dataEntryForm.invalid">Submit</button>
+          <button class="btn btn-primary" type="submit" [disabled]="dataEntryForm?.invalid">Submit</button>
         </form>
+        <div>
+          <label>Submitted form data:</label> {{ submittedFormData | json }}
+        </div>
       </div>
     </div>
   </div>

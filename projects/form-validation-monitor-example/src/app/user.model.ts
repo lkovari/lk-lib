@@ -6,8 +6,8 @@ export class User implements IUser {
     phone: number;
 
     public constructor(un?: string, em?: string, ph?: number) {
-        this.userName = un ? un : 'lkovari';
-        this.email = em ? em : 'lkovari@lkovari.com';
-        this.phone = ph ? ph : 8001234567;
+        this.userName = un ? un : '';
+        this.email = em ? em : '';
+        this.phone = ph ? ph : 0;
     }
 }

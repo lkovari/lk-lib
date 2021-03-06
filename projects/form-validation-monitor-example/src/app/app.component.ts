@@ -11,7 +11,7 @@ import { User } from './user.model';
 export class AppComponent {
   title = 'form-validation-monitor-example';
   user: IUser = new User();
-  userNameMinLength = 5;
+  userNameMinLength = 4;
   userNameMaxLength = 20;
   // originated from : https://www.sitepoint.com/community/t/phone-number-regular-expression-validation/2204
   usPhoneNumberPattern = '^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$';
@@ -23,13 +23,17 @@ export class AppComponent {
    }
 
   ngOnInit() {
-    this.user = new User();
   }
 
 
   setValues() {
     this.dataEntryForm?.resetForm();
-    this.user = new User('lkovary', 'lkovary@lkovary.com', 8001234567);
+    this.submittedFormData = undefined;
+    this.user.userName = 'jdoe';
+    this.user.email = 'john.doe@johndoe.com';
+    this.user.phone = 18001234567;
+    const fc = this.dataEntryForm?.controls['userName'];
+    fc?.markAsDirty();
     console.log('setValues Click event fired');
   }
 
