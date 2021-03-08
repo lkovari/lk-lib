@@ -4,8 +4,8 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Description of the form-validation-monitor
 
-The library lk-lib is contains currently the Angular form validation monitor tool. (lk-form-validation-monitor)
-The purpose of the Angular form validation monitor tool is,  tho show in realtime the angular validation result (status, valid, invalid) and validation signales (pristine, dirty, touched, untouched) with the FormControl, FormGroup, FormArray value eg. of the the three fundamental building blocks (FormControl, FormGroup, FormArray) of Angular forms. If the main form contain complex building block eg. FormGroup or FormArray, the user if click on it, can recursivelly traverse the complex building block content.
+This npm contains an Angular form validation monitor tool. (lk-form-validation-monitor)
+The purpose of the Angular form validation monitor tool is, tho show in realtime the angular validation result (status, valid, invalid) and validation signals (pristine, dirty, touched, untouched) with the FormControl, FormGroup, FormArray value eg. of the three fundamental building blocks (FormControl, FormGroup, FormArray) of Angular forms. If the main form contains a complex building block eg. FormGroup or FormArray, the user if click on it, can recursively traverse the complex building block content. Prerequisities is standard Template-Driven or Reactive (with former name model-driven) Angular forms.
 
 ## Usage of the  Form Validation Monitor selector: _lk-form-validation-monitor_
 _<lk-form-validation-monitor [mainFormGroup]="dataEntryForm"></lk-form-validation-monitor>_
@@ -30,9 +30,10 @@ After building your library with `ng build form-validation-monitor`, go to the d
 
 [Demo app source of the lk-form-validation-monitor](https://github.com/lkovari/lk-lib/tree/main/projects/form-validation-monitor-example) 
 
-The library
 [Library source of the  lk-form-validation-monitor](https://github.com/lkovari/lk-lib/tree/main/projects/form-validation-monitor)
 
-## Example UI.
+## Example UI. and the real life usage
 
 ![Example UI](https://github.com/lkovari/KLHome/blob/master/src/assets/images/Example-Of-the-lk-form-validation-monitor.png)
+
+[The real life usage on the followin webpage](https://lkovari.github.io/KLHome/#/angular-page/angular-page-content7)
