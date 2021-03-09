@@ -16,7 +16,10 @@ Prerequisities is standard Template-Driven or Reactive (with former name model-d
 
 _<lk-form-validation-monitor [mainFormGroup]="dataEntryForm" [distanceFrom]="5"></lk-form-validation-monitor>_
 
-Where the dataEntryForm is the reference in the templae of the main form, 
+Where the 
+
+- dataEntryForm is the reference in the templae of the main form, 
+- distanceFrom is the height of the gap in rem, between the UI of the Form Validation Monitor and other UI elements
 
 _<form (ngSubmit)="onSubmit(dataEntryForm)" #dataEntryForm="ngForm" novalidate autocomplete="off">_
 
