@@ -1,6 +1,6 @@
 {
   "name": "@lkovari/form-validation-monitor",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "keywords": ["Angular", "Form", "Validation", "Monitor"],
   "author": "Laszlo Kovari <laszlo.kovary@gmail.com> (https://lkovari.github.io/KLHome)",

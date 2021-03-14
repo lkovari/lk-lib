@@ -6,7 +6,7 @@ import { FormValidationMonitorComponent } from './form-validation-monitor.compon
 
 
 @NgModule({
-  declarations: [FormValidationMonitorComponent],
+  declarations: [],
   imports: [
     FormsModule,    
     CommonModule

@@ -55,7 +55,7 @@ export class FormValidationMonitorComponent implements OnInit {
   }
 
   extractFormGroupPropertyValueByKey(key: string): string {
-    return this.mainFormGroup[key];
+    return this.mainFormGroup ? this.mainFormGroup[key] : null;
   }
 
   isComplexControl(ctrl: AbstractControl): boolean {
@@ -142,7 +142,7 @@ export class FormValidationMonitorComponent implements OnInit {
   }
 
   isObjectType(v: any): boolean {
-    return v instanceof Object;
+    return v ? v instanceof Object : false;
   }
 
   onClickValue(ctrlKey?: any) {
